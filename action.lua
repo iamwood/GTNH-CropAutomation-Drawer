@@ -62,7 +62,7 @@ local function depositSeedsInFilingCabinet()
 
     gps.go(config.filingCabinetPos)
     for i=1, (robot.inventorySize() + config.storageStopSlot) do
-        if robot.count(i) > 0 and inv_con.getStackInInternalSlot(i).name == 'IC2:itemCropSeed' then
+        if robot.count(i) > 0 and inventory_controller.getStackInInternalSlot(i).name == 'IC2:itemCropSeed' then
             robot.select(i)
             inventory_controller.dropIntoSlot(sides.down, inventory_controller.getInventorySize(sides.down))
         end
