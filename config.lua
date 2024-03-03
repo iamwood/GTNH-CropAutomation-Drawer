@@ -12,6 +12,8 @@ local config = {
     keepDrops = true,
     -- Keep crops that are not the target crop during autoSpread and autoStat
     keepMutations = false,
+    -- Split items between seeds filing cabinet and trash can
+    useFilingCabinet = true,
     -- Stat-up crops during autoTier (Very Slow)
     statWhileTiering = false,
 
@@ -44,6 +46,8 @@ local config = {
     stickContainerPos = {-1, 0},
     -- The coordinate for the container to store seeds, products, etc
     storagePos = {-2, 0},
+    -- The coordinate for filing cabinet
+    filingCabinetPos = {-3, 0},
     -- The coordinate for the farmland that the dislocator is facing
     relayFarmlandPos = {1, 1},
     -- The coordinate for the transvector dislocator

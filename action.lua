@@ -57,6 +57,21 @@ local function restockStick()
 end
 
 
+local function depositSeedsInFilingCabinet()
+    local selectedSlot = robot.select()
+
+    gps.go(config.filingCabinetPos)
+    for i=1, (robot.inventorySize() + config.storageStopSlot) do
+        if robot.count(i) > 0 and inv_con.getStackInInternalSlot(i).name == 'IC2:itemCropSeed' then
+            robot.select(i)
+            inventory_controller.dropIntoSlot(sides.down, inventory_controller.getInventorySize(sides.down))
+        end
+    end
+
+    robot.select(selectedSlot)
+end
+
+
 local function dumpInventory()
     local selectedSlot = robot.select()
 
@@ -78,6 +93,9 @@ end
 
 
 local function restockAll()
+    if config.useFilingCabinet then
+        depositSeedsInFilingCabinet()
+    end
     dumpInventory()
     restockStick()
     charge()
